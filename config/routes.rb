@@ -64,7 +64,7 @@ New::Application.routes.draw do
   # just remember to delete public/index.html.
   #root :to => 'admin/dashboard#index',:constraints => RoleConstraint.new(:superadmin)
 
-  root :to => 'admin/dashboard#index', :constraints => lambda { |request| request.env['warden'].user.try(:role_name) == 'superadmin' }
+ # root :to => 'admin/dashboard#index', :constraints => lambda { |request| request.env['warden'].user.try(:role_name) == 'superadmin' }
 
 
   root :to => 'posts#index'
