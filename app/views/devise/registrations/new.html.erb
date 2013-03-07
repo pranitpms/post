@@ -3,7 +3,7 @@
 
 
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),html:{multipart: true,class:"form-4"}) do |f| %>
+<%= form_for(resource, :as => resource_name,validate:true, :url => registration_path(resource_name),html:{multipart: true,class:"form-4"}) do |f| %>
   <%= devise_error_messages! %>
         <h2>Sign up</h2>
     <div><%= f.label :email %><br />

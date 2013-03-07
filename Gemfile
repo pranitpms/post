@@ -11,14 +11,19 @@ gem 'devise' , '1.4.7'
 
 gem "carrierwave"
 
-#gem "cancan"
+gem 'jquery-validation-rails'
+
+ gem "cancan"
 #
 gem "activeadmin"
 
 gem "activeadmin-cancan"
+
 gem 'coffee-script-source', '~> 1.4.0'
 
 gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
+
+gem 'client_side_validations'
 
 # Gems used only for assets and not required
 # in production environments by default.

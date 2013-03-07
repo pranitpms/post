@@ -391,7 +391,7 @@ div.avatar a:hover
 
     /* Font styles */
     font-family: 'Raleway', 'Lato', Arial, sans-serif;
-    color: #ff1620;
+    color: #1492C4;
     text-shadow: 0 2px 1px rgba(0,0,0,0.3);
 }
 
@@ -408,8 +408,8 @@ div.avatar a:hover
     margin-bottom: 15px;
 
     /* Styles */
-    border: 1px solid #4e3043; /* Fallback */
-    border: 1px solid rgba(78,48,67, 0.8);
+    border: 1px solid #15ccff; /* Fallback */
+    border: 1px solid rgba(21, 199, 250, 0.80);
     background: rgba(0,0,0,0.15);
     border-radius: 2px;
     box-shadow:
@@ -423,12 +423,12 @@ div.avatar a:hover
 
     /* Font styles */
     font-family: 'Raleway', 'Lato', Arial, sans-serif;
-    color: #ff0040;
+    color:#1492C4;
     font-size: 13px;
 }
 .form-4 label
 {
-    color: #8b0000;
+    color: #1492C4;
 }
 .form-4 input::-webkit-input-placeholder {
     color: rgba(37,21,26,0.5);
@@ -473,9 +473,9 @@ div.avatar a:hover
     padding: 8px 5px;
 
     /* Styles */
-    background: linear-gradient(rgba(99,64,86,0.5), rgba(76,49,65,0.7));
+    background: linear-gradient(rgba(20, 146, 195, 0.65), rgba(20, 146, 196, 0.69));
     border-radius: 5px;
-    border: 1px solid #4e3043;
+    border: 1px solid rgb(20, 146, 194);
     box-shadow:
         inset 0 1px rgba(255,255,255,0.4),
         0 2px 1px rgba(0,0,0,0.1);
@@ -492,13 +492,13 @@ div.avatar a:hover
 
 .form-4 input[type=submit]:hover {
     box-shadow:
-        inset 0 1px rgba(255,255,255,0.2),
-        inset 0 20px 30px rgba(99,64,86,0.5);
+        inset 0 0px 5px rgb(20, 146, 196),
+        inset 0 20px 30px rgba(20, 146, 196);
 }
 
 /* Fallback */
 .no-boxshadow .form-4 input[type=submit]:hover {
-    background: #594642;
+    background: #1492c0;
 }
 .form-4 label {
     display: none;
