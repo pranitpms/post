@@ -1,30 +1,50 @@
 
 
+
+
+
+
+
 <div id="content">
-
-
+	
+	
+<% @user = User.all %>
 <% @posts.each do |post| %>
-    <div class="box1">
-       <h2 class="title"><a><%= post.title %></a></h2>
-        <p>Posted By :<%= post.name %></p>
+
+
+      <div class="box1">
+
+
        <div>
          <ul class="style1">
-           <li class="first"><h3><em><img/></em></h3></li>
-         <p><%= post.content %></p>
+
+
+
+           <li class="first"><h3><div class="avatar"></div><%= post.name %></h3>  </li>
+
+          <li><h1><%= post.title %></h1><%= post.created_at.strftime('%b %d, %Y')%></li>
+          
+         <p class="comment"><%= post.content %></p>
+
+         </ul>
+
+          rate : <%= rating_for post, "post" %>
+
+
          <p><%= link_to 'Show', post, class:"more" %>
             <% if can? :destroy, post %>
               <%= link_to "Destroy", post, class:"more",:method => :delete, :confirm => "Are you sure?" %>
            <% end %>   </p>
-           </ul>
+
        </div>
 
-     </div>
-
+        <hr/>
+      </div>
 
 
 
 <% end %>
 
-<br />
 
-   </div>
+</div>
+

@@ -1,0 +1,26 @@
+
+         
+  <div id="content">
+
+<%= form_for(resource, :as => resource_name,:url => session_path(resource_name),html:{class:"form-4"},:validate => true) do |f| %>
+    <h1> <span class="sign-up">sign In</span></h1>
+    <p >
+    <%= f.label :username %>
+      <%= f.text_field :username ,placeholder:"Username"%></p>
+    <p >
+  <%= f.label :password %>
+  <%= f.password_field :password, placeholder:"Password"%></p>
+   
+  <% if devise_mapping.rememberable? -%>
+        <p ><%= f.check_box :remember_me ,placeholder:"remeber me"%> <%= f.label :remember_me, value:"remember me" %></p>
+  <% end -%>
+
+  <p><%= f.submit "Sign in" %></p>
+
+<% end %>
+
+    <p>
+      <%= render :partial => "devise/shared/links" %></p>
+        </div>
+
+

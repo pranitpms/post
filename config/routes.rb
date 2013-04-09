@@ -1,16 +1,36 @@
 New::Application.routes.draw do
-  ActiveAdmin.routes(self)
+  
+  
+
+  match '/rate' => 'rater#create', :as => 'rate'
+
+  
+  get "ol/show"
+
+  resources :photos
+
+
+ 
+
+
+
+
+
+  get "phots/index"
+  
+ 
+
+  # ActiveAdmin.routes(self)
 
   #devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :users  do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+  devise_for :users , controllers: { :sessions => "users/sessions" }
 
-
-  end
 
   resources :posts do
     resources :comments
+      
+     
   end
 
   # The priority is based upon order of creation:

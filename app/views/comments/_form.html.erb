@@ -1,13 +1,13 @@
 
 
-<%= form_for([@post, @post.comments.build]) do |f| %>
+<%= form_for([@post, @post.comments.build],html:{class:"form-4"},remote: true) do |f| %>
 
-    <div class="field">
+
       <%= f.hidden_field :commenter ,value: current_user.username %>
-      <%= f.label :body %><br />
-      <%= f.text_area :body %>
-    </div>
-    <div class="actions">
+
+      <%= f.text_area :body ,placeholder:"comment",:rows=>1%>
+
+    <p>
       <%= f.submit %>
-    </div>
+    </p>
 <% end %>
