@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require jquery.ui.datepicker
+//= require event_calendar
 
+$(function() {
+  $("#event_start_at").datepicker();
+  $("#event_end_at").datepicker();
+});

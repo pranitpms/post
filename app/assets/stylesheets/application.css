@@ -1,3 +1,9 @@
+/*
+*= require jquery.ui.datepicker
+*= require event_calendar
+*/
+
+
 html, body {
     height: 100%;
     width: 100%;
@@ -345,9 +351,34 @@ ul.style3 .first .date
 
 }
 
+.tb7 {
+    width: 221px;
+   
+    color : #1492c2;
+    height:20px;
+    border:0;
+    padding:4px 8px;
+    margin-bottom:0px;
+}
 
-
-
+.styled-select select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
+   .styled-select {
+   width: 240px;
+   height: 34px;
+   overflow: hidden;
+   background: url(new_arrow.png) no-repeat right #ddd;
+   border: 1px solid #ccc;
+   }
 
 
 

@@ -1,0 +1,14 @@
+<div id="content">
+
+<h1>Editing post</h1>
+
+<%= form_tag ({controller: "calendar", action: "create" ,class:"form-4"}) do%>
+<p><lable for="name"> Event Name : <%= text_field :event, :name ,class:"tb7"%></p>
+<p><lable for="name"> Start Date :	<%= date_select :event, :start_at %> </p>
+<p><lable for="name"> End Date   : <%= date_select :event, :end_at %> </p>
+<p> <%= submit_tag "Create" %> <p>
+<% end %>
+
+<%= link_to 'Show', @event %> |
+<%= link_to 'Back', event_path %>
+    </div>

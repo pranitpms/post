@@ -78,6 +78,14 @@ ActiveRecord::Schema.define(:version => 20130409070118608) do
   add_index "controllers", ["email"], :name => "index_controllers_on_email", :unique => true
   add_index "controllers", ["reset_password_token"], :name => "index_controllers_on_reset_password_token", :unique => true
 
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.date     "start_at"
+    t.date     "end_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "follows", :force => true do |t|
     t.string   "follower_type"
     t.integer  "follower_id"
@@ -88,6 +96,15 @@ ActiveRecord::Schema.define(:version => 20130409070118608) do
 
   add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
+
+  create_table "friends", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.date     "birthday"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.datetime "start_time"
+  end
 
   create_table "likes", :force => true do |t|
     t.string   "liker_type"

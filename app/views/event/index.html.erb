@@ -1,0 +1,9 @@
+<div id="content">
+<p><label for="name"> Event name : <%= @event.name %> </p>
+<p><label for="start"> Start day : <%= @event.start_at %></p>
+<p><label for="end"> End day : <%= @event.end_at %><p/>
+
+	<p><%= link_to 'Send Mail',"#"%></p>
+	<p><%= link_to 'Delete',@event, :method => :delete, :confirm => "Are you sure?"%></p>
+	<p><%= link_to 'Edit',event_edit_path(@event)%></p>
+</div>

@@ -2,6 +2,26 @@ New::Application.routes.draw do
   
   
 
+  get "event/index"
+
+  get "event/show"
+
+  get "event/update"
+
+  get "event/delete"
+
+  match "events/edit/:id", :controller => "event", :action => "edit"
+
+  match "/events/:id", :controller => "event", :action => "index", :as => :event
+
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+
+  match "/calendar/:year/:month/:day", :controller => "calendar", :action => "day"
+  
+  post "calendar/create", :controller => "calendar", :action => "create"
+  resources :friends
+
+
   match '/rate' => 'rater#create', :as => 'rate'
 
   
