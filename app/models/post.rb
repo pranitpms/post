@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
 
-	letsrate_rateable "post"
+  letsrate_rateable "post"
+
+  acts_as_votable
+  
   has_many :comments
    belongs_to :users
   mount_uploader :image, ImageUploader

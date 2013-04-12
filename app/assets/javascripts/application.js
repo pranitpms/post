@@ -15,8 +15,11 @@
 //= require_tree .
 //= require jquery.ui.datepicker
 //= require event_calendar
+//= require bootstrap-toggle-buttons
 
 $(function() {
   $("#event_start_at").datepicker();
   $("#event_end_at").datepicker();
 });
+
+$('#normal-toggle-button').toggleButtons();

@@ -2,17 +2,12 @@ New::Application.routes.draw do
   
   
 
-  get "event/index"
+  
 
-  get "event/show"
+  resources :events
 
-  get "event/update"
 
-  get "event/delete"
-
-  match "events/edit/:id", :controller => "event", :action => "edit"
-
-  match "/events/:id", :controller => "event", :action => "index", :as => :event
+  match '/events/:id', :controller => "event", :action => "index", :as => :event
 
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
@@ -28,6 +23,7 @@ New::Application.routes.draw do
   get "ol/show"
 
   resources :photos
+
 
 
  

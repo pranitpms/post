@@ -1,0 +1,19 @@
+<div id="content">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h3>Event Name : <%= @event.name %><h3>
+</p>
+
+<p>
+  <h3>Start at : <%= @event.start_at %> </h3>
+</p>
+
+<p>
+  <h3>End at : <%= @event.end_at %></h3>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', calendar_path %> | <%= link_to "Destroy", @event, class:"more",:method => :delete, :confirm => "Are you sure?" %>
+</div>

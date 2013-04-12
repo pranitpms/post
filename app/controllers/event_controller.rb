@@ -24,8 +24,8 @@ class EventController < ApplicationController
     end
   end
 
-  def delete
-  	@event = Event.find(params[:id])
+   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
 
     respond_to do |format|

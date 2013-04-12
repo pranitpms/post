@@ -33,6 +33,10 @@ gem "simple_calendar", "~> 0.1.5"
 
 gem 'event-calendar', :require => 'event_calendar'
 
+gem 'acts_as_votable', '~> 0.5.0'
+
+gem 'rails-bootstrap-toggle-buttons'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

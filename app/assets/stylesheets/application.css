@@ -1,6 +1,7 @@
 /*
 *= require jquery.ui.datepicker
 *= require event_calendar
+*= require bootstrap-toggle-buttons
 */
 
 
@@ -212,6 +213,12 @@ hr {
     margin-bottom: 30px;
 }
 
+#content #box2
+{
+   
+    background-color:#1492c2 ;
+    
+}
 /** SIDEBAR */
 
 #sidebar {
