@@ -16,6 +16,7 @@
 //= require jquery.ui.datepicker
 //= require event_calendar
 //= require bootstrap-toggle-buttons
+//= require facebook
 
 $(function() {
   $("#event_start_at").datepicker();

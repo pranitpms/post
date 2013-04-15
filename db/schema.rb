@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(:version => 20130409070118608) do
     t.datetime "updated_at",         :null => false
   end
 
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "chat", :force => true do |t|
     t.string   "from",    :default => "", :null => false
     t.string   "to",      :default => "", :null => false
@@ -197,10 +205,12 @@ ActiveRecord::Schema.define(:version => 20130409070118608) do
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
     t.string   "username"
-    t.string   "image"
     t.string   "role_name"
-    t.integer  "last_seen"
     t.datetime "last_sign_out_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

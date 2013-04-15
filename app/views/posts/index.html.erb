@@ -3,7 +3,9 @@
       <div class="box1">
        <div>
          <ul class="style1">
-           <li class="first"><h3><div class="avatar"></div><%= post.name %></h3>  </li>
+           <li class="first"><h3><div class="avatar"></div><%= post.name %>
+            <%= image_tag current_user.photo.url %>
+            </h3>  </li>
             <li><h1><%= post.title %></h1><%= post.created_at.strftime('%b %d, %Y')%></li>
             <p class="comment"><%= post.content %></p>
          </ul>

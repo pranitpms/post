@@ -1,0 +1,34 @@
+
+<div id="content">
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put , multipart: true, class:"form-4" }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <p> Email : <br />
+  <%= f.email_field :email %></p>
+
+    <p> Username : <br />
+      <%= f.text_field :username %></p>
+
+    <p> Photo : <br />
+      <%= f.file_field :photo ,placholder:"Choose image"%></p>
+
+  <p> password : <i>(leave blank if you don't want to change it)</i><br />
+  <%= f.password_field :password %></p>
+
+  <p> Password_confirmation : <br />
+  <%= f.password_field :password_confirmation %></p>
+
+   <p> Current_password : <br /> <i>(we need your current password to confirm your changes)</i><br />
+  <%= f.password_field :current_password %></p>
+
+  <p><%= f.submit "Update" %></p>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+<%= link_to "Back", :back %>
+</div>

@@ -37,6 +37,20 @@ gem 'acts_as_votable', '~> 0.5.0'
 
 gem 'rails-bootstrap-toggle-buttons'
 
+gem 'omniauth'
+
+gem 'omniauth-twitter'
+
+gem 'omniauth-facebook'
+
+gem 'oauth2'
+
+gem 'omniauth-google'
+
+gem 'paperclip'
+
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

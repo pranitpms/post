@@ -6,16 +6,16 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     user ||= User.new
-    if user.role? :superadmin
+    if user.role_name == "superadmin"
       can :manage, :all
-      elsif user.role? :user
+      elsif user.role_name == "user"
         can :read, :all
         can :create, Comment
         can :update, Comment do |comment|
-          comment.try(:user) == user || user.role?(:admin)
+          comment.try(:user) == user || user.role_name == "admin"
           end
       else
-        user.role? :admin
+        user.role_name == "admin"
         can :create, Post
         can :update, Post
       end

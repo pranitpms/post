@@ -4,6 +4,10 @@ New::Application.routes.draw do
 
   
 
+  resources :authentications
+
+  match '/auth/:provider/callback' => 'authentications#create'
+
   resources :events
 
 
@@ -24,23 +28,14 @@ New::Application.routes.draw do
 
   resources :photos
 
-
-
- 
-
-
-
-
-
   get "phots/index"
   
- 
 
   # ActiveAdmin.routes(self)
 
   #devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :users , controllers: { :sessions => "users/sessions" }
+  devise_for :users , controllers: { :sessions => "users/sessions", :registrations => 'registrations'}
 
 
   resources :posts do

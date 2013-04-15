@@ -5,7 +5,8 @@ class Post < ActiveRecord::Base
   acts_as_votable
   
   has_many :comments
-   belongs_to :users
+  belongs_to :users
+  
   mount_uploader :image, ImageUploader
 
   attr_accessible :content, :name, :title, :gallery_id, :remote_image_url, :image, :user_id
