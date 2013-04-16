@@ -18,9 +18,12 @@
 //= require bootstrap-toggle-buttons
 //= require facebook
 
-$(function() {
-  $("#event_start_at").datepicker();
-  $("#event_end_at").datepicker();
-});
 
-$('#normal-toggle-button').toggleButtons();
+
+   
+    // Subscribe to receive messages!
+    
+ 
+    // Handle form submission to publish messages.
+     
+  

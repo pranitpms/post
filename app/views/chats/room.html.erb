@@ -1,0 +1,65 @@
+<script>
+  $(function() {
+    // Subscribe to receive messages!
+    var client = new Faye.Client('http://172.20.150.74:9292/faye');
+ 
+    // Our public subscription
+    var public_subscription = client.subscribe('/messages/public', function(data) {
+    	$("#chat_text").append( "\n" + data.username + ": " + data.msg);
+      // $('<p></p>').html(data.username + ": " + data.msg).appendTo('#chat_room');
+    });
+ 
+    // Our own private channel
+    var private_subscription = client.subscribe('/messages/private/<%= session[:username] %>', function(data) {
+    	$("#textAreaId").text($("#divId").text());
+      $('<p></p>').addClass('private').html(data.username + ": " + data.msg).appendTo('#chat_room');
+    });
+ 
+    // Handle form submission to publish messages.
+    $('#new_message_form').submit(function(){
+      // Is it a private message?
+      if (matches = $('#message').val().match(/@(.+) (.+)/)) {
+        client.publish('/messages/private/' + matches[1], {
+          username: '<%= session[:username] %>',
+          msg: matches[2]
+        });
+      }
+      else {
+        // It's a public message
+        client.publish('/messages/public', {
+          username: '<%= session[:username] %>',
+          msg: $('#message').val()
+        });
+      }
+ 
+      // Clear the message box
+      $('#message').val('');
+ 
+      return false;
+    });
+  });
+</script>
+<style>
+.chat_container
+{
+	background-color : green;
+	bottom:0px;
+   float: right;
+   position: fixed;
+	right:0px;
+}
+</style>
+<div id="content">
+<div class="chat_container">
+  <div id="chat_room">
+  	
+    <p class="alert"> Welcome to the chat room <%= session[:username]  %>! </p>
+    <textarea  id="chat_text" rows="15" cols="30" readonly style="resize: none;"></textarea><br/>
+  </div>
+ 
+  <form id="new_message_form">
+    <input type="text" id="message" name="message">
+    <input type="submit" value="Send">
+  </form>
+</div>
+</div>

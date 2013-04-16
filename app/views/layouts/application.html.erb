@@ -4,8 +4,9 @@
 <head>
   <title>New</title>
   <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css","application" %>
-    <%= javascript_include_tag "application"%>
-<%= csrf_meta_tag %>
+  <%= javascript_include_tag "application"%>
+  <%= javascript_include_tag "http://172.20.150.74:9292/faye.js" %>
+  <%= csrf_meta_tag %>
 </head>
 
 <body>
@@ -66,7 +67,7 @@
     <% @users.each do |user| %>
             <% if user.online? && user.username != current_user.username%>
             <li>
-    <a href="#" onclick="javascript:chatWith('pranit')"><%=user.username%></a>
+    <a href="#"><%=user.username%></a>
           
 
         </li>

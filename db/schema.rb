@@ -207,10 +207,7 @@ ActiveRecord::Schema.define(:version => 20130409070118608) do
     t.string   "username"
     t.string   "role_name"
     t.datetime "last_sign_out_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

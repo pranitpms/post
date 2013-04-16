@@ -4,6 +4,8 @@ New::Application.routes.draw do
 
   
 
+  get "chats/room"
+
   resources :authentications
 
   match '/auth/:provider/callback' => 'authentications#create'
@@ -35,7 +37,8 @@ New::Application.routes.draw do
 
   #devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :users , controllers: { :sessions => "users/sessions", :registrations => 'registrations'}
+  devise_for :users , controllers: { :sessions => "users/sessions", :registrations => 'registrations'} 
+
 
 
   resources :posts do

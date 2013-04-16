@@ -7,11 +7,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :registerable,
          :rememberable, :trackable,:validatable
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :username, :remember_me, :role_name, :photo, :photo_file_name, :photo_content_type, :photo_file_style, :photo_updated_at
+  attr_accessible :email, :password, :password_confirmation, :username, :remember_me, :role_name, :avatar, :remote_avatar_url
 
-  has_attached_file :photo, :styles => { :small => "150x150>" }
-                  # :url  => "/assets/users/:id/:style/:basename.:extension",
-                  # :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
+  mount_uploader :avatar , AvatarUploader
 
   has_and_belongs_to_many :Roles
 

@@ -2,8 +2,16 @@
 
 class RegistrationsController < Devise::RegistrationsController
   def create
-    super
+    # super
     session[:omniauth] = nil unless @user.new_record?
+    
+      if params[:user][:avatar].blank?
+        flash[:notice] = "Successfully created user."
+        redirect_to @user
+      else
+        render :action => "crop"
+      end
+    
   end
   
   private
@@ -15,5 +23,8 @@ class RegistrationsController < Devise::RegistrationsController
       @user.valid?
     end
   end
+
+  
 end
+
 

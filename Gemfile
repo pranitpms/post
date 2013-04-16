@@ -49,6 +49,7 @@ gem 'omniauth-google'
 
 gem 'paperclip'
 
+gem 'faye'
 
 
 # Gems used only for assets and not required
