@@ -1,5 +1,9 @@
- <%= comment.commenter %> :
-<p class="comment">
+<div class="row">
+   <div class="span7">
+    <div class="alert alert-info">
+      <strong><%= comment.commenter %> :</strong>
+      <%= comment.body %>
+    </div>
+  </div>
+</div>
 
-   <%= comment.body %>
-</p>

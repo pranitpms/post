@@ -29,13 +29,7 @@ gem 'letsrate'
 
 gem 'jquery-ui-rails'
 
-gem "simple_calendar", "~> 0.1.5"
-
 gem 'event-calendar', :require => 'event_calendar'
-
-gem 'acts_as_votable', '~> 0.5.0'
-
-gem 'rails-bootstrap-toggle-buttons'
 
 gem 'omniauth'
 
@@ -47,10 +41,9 @@ gem 'oauth2'
 
 gem 'omniauth-google'
 
-gem 'paperclip'
-
 gem 'faye'
 
+gem 'twitter-bootstrap-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

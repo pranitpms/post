@@ -1,12 +1,18 @@
-<h2>Resend confirmation instructions</h2>
+<section id="forms">
+  <div class="row">
+    <div class="span10 offset1">
+      <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :class => "well form-search" , :method => :post}) do |f| %>
+          <fieldset>
+            <legend>Resend confirmation instructions</legend>
+            <%= devise_error_messages! %>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+            <%= f.email_field :email, class:"input-small" ,placeholder:"Email"%>
 
-  <div><%= f.submit "Resend confirmation instructions" %></div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+            <%= f.submit "Resend confirmation instructions" ,class:"btn"%>
+            <%= render "devise/shared/links" %>
+          </fieldset>
+      <% end %>
+    </div>
+  </div>
+</section>

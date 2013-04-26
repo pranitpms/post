@@ -1,34 +1,67 @@
+<script>
+    jQuery(document).ready(function(){
+        // binds form submission and fields to the validation engine
+        jQuery("#new_user").validationEngine();
+    });
 
-<div id="content">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put , multipart: true, class:"form-4" }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <p> Email : <br />
-  <%= f.email_field :email %></p>
-
-    <p> Username : <br />
-      <%= f.text_field :username %></p>
-
-    <p> Photo : <br />
-      <%= f.file_field :avatar ,placholder:"Choose image"%></p>
-
-  <p> password : <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></p>
-
-  <p> Password_confirmation : <br />
-  <%= f.password_field :password_confirmation %></p>
-
-   <p> Current_password : <br /> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></p>
-
-  <p><%= f.submit "Update" %></p>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
-</div>
+</script>
+<!--------------------------------------------------------------->
+<section id="forms">
+  <div class="row">
+    <div class="span10 offset1">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {multipart: true,id:"new_user", class:"well form-horizontal", :method => :put }) do |f| %>
+          <%= devise_error_messages! %>
+          <fieldset>
+            <legend>Edit <%= resource_name.to_s.humanize %></legend>
+            <div class="control-group">
+              <%= f.label :email ,class: "control-label"%>
+              <div class="controls">
+                <%= f.email_field :email,:class => "validate[required, custom[email]],input-xlarge" %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :username ,class: "control-label"%>
+              <div class="controls">
+                <%= f.text_field :username,:class => "validate[required, custom[email]],input-xlarge" %>
+              </div>
+            </div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+            <div class="control-group">
+              <%= f.label :password ,class: "control-label" %>
+              <div class="controls">
+                <%= f.password_field :password ,:type => "password",:class => "validate[required],input-xlarge"%>  <i>(leave blank if you don't want to change it)</i>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :password_confirmation ,class: "control-label" %>
+              <div class="controls">
+                <%= f.password_field :password_confirmation ,:type => "password",:class => "validate[required],input-xlarge"%>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :current_password ,class: "control-label" %>
+              <div class="controls">
+                <%= f.password_field :current_password ,:type => "password",:class => "validate[required],input-xlarge"%>  <i>(we need your current password to confirm your changes)</i>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :avatar ,class: "control-label" %>
+              <div class="controls">
+                <%= f.file_field :avatar ,:type => "file",:class =>"input-file"%>
+              </div>
+            </div>
+            <% f.hidden_field :role_name, value: "user"%>
+            <div class="form-actions">
+              <%= f.submit "Update", :class=>'btn btn-primary'%>
+              <button type="reset" class="btn">Cancel</button>
+            </div>
+      <% end %>
+      <h3>Cancel my account</h3>
+      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" },:class=>'btn btn-primary', :method => :delete %></p>
+      <%= link_to "Back", :back %>
+      </fieldset>
+    </div>
+  </div>
+</section>

@@ -1,33 +1,43 @@
 
-<div id="content">
-
-
-<p id="notice"><%= notice %></p>
-
-
-
-     <div id="box1">
-    <h2 class="title">  <a href="#"><%= @post.title %> </a></h2>
-    <p >Posted by <%= @post.name %></p>
-    <div style="clear: both;">&nbsp;</div>
-    <div class="entry">
-      <ul class="style1">
-   <li> <%= @post.content %>    </li>
-
-
-    <h1>Comments</h1>
-
-    <li><%= render @post.comments %>     </li>
-
-
-    <%= render "comments/form" %>
-
-        </ul>
-    <br />
-<p >
-<%= link_to 'Edit Post', edit_post_path(@post) , class: "more" %> |
-<%= link_to 'Back to Posts', posts_path, class:  "more" %> |
-        </p>
+<section id="typography">
+  <div id="content">
+    <div class="row">
+      <div class="span1.5">
+        <div class="well ">
+          <% (@user = User.all).each do |u|%>
+              <% if @post.name == u.username %>
+                  <%= image_tag u.avatar_url(:thumb) %>
+              <% end %>
+          <%end %>
         </div>
-      </div >
-                     </div>
+      </div>
+      <div class="span2">
+        <div class="well ">
+          <span class="label label-info">
+     <h4> <%= @post.name%></h4>
+    </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span8">
+        <div class="well ">
+          <blockquote>
+            <p><%= @post.content %></p>
+          </blockquote>
+          <hr/>
+          <h4>Comments : </h4>
+          <hr/>
+          <%= render @post.comments %>
+          <hr/>
+          <%= render "comments/form" %>
+          <br />
+          <p >
+            <%= link_to 'Edit Post', edit_post_path(@post) , class: "more" %> |
+            <%= link_to 'Back to Posts', posts_path, class:  "more" %> |
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

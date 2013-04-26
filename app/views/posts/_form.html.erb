@@ -1,18 +1,44 @@
-<%= form_for(@post, html: {multipart: true,class:"form-4"}) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<section id="forms">
+  <div class="row">
+    <div class="span10 offset1">
+      <%= form_for(@post, html: {multipart: true,class:"form-horizontal well"}) do |f| %>
+          <fieldset>
+            <% if @post.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+                  <ul>
+                    <% @post.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+
+            <div class="control-group">
+              <%= f.label :title ,class:"control-label"%>
+              <div class="controls">
+                <%= f.text_field :title ,class:"input-xlarge"%>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :content ,class:"control-label"%>
+              <div class="controls">
+                <%= f.text_area :content ,class:"input-xlarge", rows: "3"%>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :title ,class:"control-label"%>
+              <div class="controls">
+                <%= f.text_field :title ,class:"input-xlarge"%>
+              </div>
+            </div>
+            <div class="form-actions">
+              <%= f.submit :class =>"btn btn-primary"%>
+              <button class="btn" type="reset">Cancel</button>
+            </div>
       <% end %>
-      </ul>
+      </fieldset>
     </div>
-  <% end %>
-    <p><%= f.text_field :title ,placeholder:"Title"%></p>
-    <p><%= f.text_area :content ,placeholder:"Content"%></p>
-    <p><%= f.submit %></p>
-<% end %>
+  </div>
+</section>
 
-
-    

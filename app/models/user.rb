@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   letsrate_rater
 
-  acts_as_voter
+
 
   ROLES =%w[superadmin admin user]
 

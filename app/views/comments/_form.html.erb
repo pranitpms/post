@@ -2,12 +2,15 @@
 
 <%= form_for([@post, @post.comments.build],html:{class:"form-4"},remote: true) do |f| %>
 
-
-      <%= f.hidden_field :commenter ,value: current_user.username %>
-
-      <%= f.text_area :body ,placeholder:"comment",:rows=>1%>
-
-    <p>
-      <%= f.submit %>
-    </p>
+    <div class="control-group">
+      <%= f.label :comment,class:"control-label"%>
+      <div class="controls">
+        <%= f.text_area :body,:rows=>1,class:"input-xlarge"%>
+      </div>
+    </div>
+    <%= f.hidden_field :commenter ,value: current_user.username %>
+    <div class="form-actions">
+      <%= f.submit :class =>"btn btn-primary"%>
+      <button class="btn" type="reset">Cancel</button>
+    </div>
 <% end %>

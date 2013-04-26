@@ -1,24 +1,56 @@
-<div id="content">
- 
+<script>
+    jQuery(document).ready(function(){
+        // binds form submission and fields to the validation engine
+        jQuery("#new_user").validationEngine();
+    });
 
-
-
-<%= form_for(resource, :as => resource_name,validate:true, :url => registration_path(resource_name),html:{multipart: true,class:"form-4"}) do |f| %>
-  <%= devise_error_messages! %>
-        <h2>Sign up</h2>
-    <p><%= f.email_field :email ,placeholder:"Email"%></p>
-    <p><%= f.text_field :username,placeholder:"username" %></p>
-    <% if @user.password_required? %>
-    <p><%= f.password_field :password ,placeholder:"password"%></p>
-    <p><%= f.password_field :password_confirmation,placeholder:"confrim password" %></p>
-    <%end%>
-    <p><%= f.file_field :avatar ,placholder:"Choose image"%></p>
-
-      <%= f.hidden_field :role_name, value: "user"%>
-    <p><%= f.submit "Sign up" %></p>
-
-
-<p><%= render :partial => "devise/shared/links" %></p>
-   
+</script>
+<!--------------------------------------------------------------->
+<section id="forms">
+  <div class="row">
+    <div class="span10 offset1">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html:{multipart: true,id:"new_user", class:"well form-horizontal"  }) do |f| %>
+          <%= devise_error_messages! %>
+          <fieldset>
+            <legend>Sign Up</legend>
+            <div class="control-group">
+              <%= f.label :email ,class: "control-label"%>
+              <div class="controls">
+                <%= f.email_field :email,:class => "validate[required, custom[email]],input-xlarge" %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :username ,class: "control-label"%>
+              <div class="controls">
+                <%= f.text_field :username,:class => "validate[required, custom[email]],input-xlarge" %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :password ,class: "control-label" %>
+              <div class="controls">
+                <%= f.password_field :password ,:type => "password",:class => "validate[required],input-xlarge"%>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :password_confirmation ,class: "control-label" %>
+              <div class="controls">
+                <%= f.password_field :password_confirmation ,:type => "password",:class => "validate[required],input-xlarge"%>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :avatar ,class: "control-label" %>
+              <div class="controls">
+                <%= f.file_field :avatar ,:type => "file",:class =>"input-file"%>
+              </div>
+            </div>
+            <% f.hidden_field :role_name, value: "user"%>
+            <div class="form-actions">
+              <%= f.submit "Sign Up", :class=>'btn btn-primary'%>
+              <button type="reset" class="btn">Cancel</button>
+            </div>
+            <%= render "devise/shared/links" %>
+          </fieldset>
+      <% end %>
     </div>
-    <% end %>
+  </div>
+</section>

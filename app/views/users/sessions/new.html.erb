@@ -1,26 +1,47 @@
 
-         
-  <div id="content">
+<script>
+    jQuery(document).ready(function(){
+        // binds form submission and fields to the validation engine
+        jQuery("#new_user").validationEngine();
+    });
 
-<%= form_for(resource, :as => resource_name,:url => session_path(resource_name),html:{class:"form-4"},:validate => true) do |f| %>
-    <h1> <span class="sign-up">sign In</span></h1>
-    <p >
-    <%= f.label :username %>
-      <%= f.text_field :username ,placeholder:"Username"%></p>
-    <p >
-  <%= f.label :password %>
-  <%= f.password_field :password, placeholder:"Password"%></p>
-   
-  <% if devise_mapping.rememberable? -%>
-        <p ><%= f.check_box :remember_me ,placeholder:"remeber me"%> <%= f.label :remember_me, value:"remember me" %></p>
-  <% end -%>
-  
-  <p><%= f.submit "Sign in" %></p>
+</script>
+<!--------------------------------------------------------------->
+<section id="forms">
+  <div class="row">
+    <div class="span10 offset1">
+      <%= form_for(resource, :as => resource_name, html:{:class =>"well form-horizontal" , id: "new_user"},:url => session_path(resource_name)) do |f| %>
 
-<% end %>
+          <fieldset>
+            <legend>Sign In</legend>
+            <div class="control-group">
+              <%= f.label :username ,class: "control-label"%>
+              <div class="controls">
+                <%= f.text_field :username,:class => "validate[required, custom[email]],input-xlarge" %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :password ,class: "control-label" %>
+              <div class="controls">
+                <%= f.password_field :password ,:type => "password",:class => "validate[required],input-xlarge"%>
+              </div>
+            </div>
+            <% if devise_mapping.rememberable? -%>
+                <div class="controls">
 
-    <p>
-      <%= render :partial => "devise/shared/links" %></p>
-        </div>
-
-
+                  <%= f.label :remember_me ,class: "control-label"%>
+                  <div class="controls">
+                    <%= f.check_box :remember_me %>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <%= f.submit "Sign in", :class=>'btn btn-primary'%>
+                  <button type="reset" class="btn">Cancel</button>
+                </div>
+            <% end %>
+            <%= render "devise/shared/links" %>
+          </fieldset>
+      <% end %>
+    </div>
+  </div>
+</section>
