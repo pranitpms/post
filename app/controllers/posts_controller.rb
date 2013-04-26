@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   # load_and_authorize_resource
   
   def index
-    @posts = Post.all
+    @posts = Post.order("name").page(params[:page]).per(2)
 
     respond_to do |format|
       format.html # index.html.erb

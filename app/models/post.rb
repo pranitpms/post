@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
   attr_accessible :content, :name, :title, :gallery_id, :remote_image_url, :image, :user_id
   belongs_to :gallery
 
-  accepts_nested_attributes_for :comments
+  accepts_nested_attributes_for :comments ,:allow_destroy => true
+
 end
 

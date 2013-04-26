@@ -1,9 +1,30 @@
-
-<div id="content">
-<%= form_tag ({controller: "calendar", action: "create" ,class:"form-4"}) do%>
-<p><lable for="name"> Event Name : <%= text_field :event, :name ,class:"tb7"%></p>
-<p><lable for="name"> Start Date :	<%= date_select :event, :start_at %> </p>
-<p><lable for="name"> End Date   : <%= date_select :event, :end_at %> </p>
-<p> <%= submit_tag "Create" %> <p>
-<% end %>
-</div>
+<section id="forms" xmlns="http://www.w3.org/1999/html">
+  <div class="row">
+    <div class="span10 offset1">
+      <%= form_tag ({controller: "calendar", action: "create" ,class:"form-horizontal well"}) do%>
+          <div class="control-group">
+            <lable for="name" class="control-label"> Event Name :  </lable>
+            <div class="controls">
+              <%= text_field :event, :name ,class:"input-xlarge"%>
+            </div>
+          </div>
+          <div class="control-group">
+            <lable for="Start Date" class="control-label">Start Date : </lable>
+            <div class="controls">
+              <%= date_select :event, :start_at %>
+            </div>
+          </div>
+          <div class="control-group">
+            <lable for="End Date" class="control-label"> End Date   : </lable>
+            <div class="controls">
+              <%= date_select :event, :end_at %>
+            </div>
+          </div>
+          <div class="form-actions">
+            <%=  submit_tag "Create" , :class =>"btn btn-primary"%>
+            <button class="btn" type="reset">Cancel</button>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</section>

@@ -114,6 +114,14 @@ ActiveRecord::Schema.define(:version => 20130409070118608) do
     t.datetime "start_time"
   end
 
+  create_table "galleries", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "likes", :force => true do |t|
     t.string   "liker_type"
     t.integer  "liker_id"

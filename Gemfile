@@ -45,6 +45,10 @@ gem 'faye'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'kaminari'
+
+gem "breadcrumbs_on_rails"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
